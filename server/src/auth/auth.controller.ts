@@ -20,6 +20,7 @@ import { RolesGuard } from './guards/roles.guard';
 import { UserDtoRegister } from './dto/userDtoRegister';
 import { Roles } from './decorators/roles.decorator';
 import { redisClient } from '../redis.store';
+import { SessionRequiredGuard } from './guards/session-auth.guard';
 
 @Controller('auth')
 @UseFilters(HttpExceptionFilter)
@@ -27,7 +28,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Get('admin')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(SessionRequiredGuard, JwtAuthGuard, RolesGuard)
   //@SetMetadata('roles', ['admin'])
   @Roles('admin')
   public async getAllUsers() {
@@ -47,7 +48,6 @@ export class AuthController {
   }
 
   @Get('login')
-  //@UseInterceptors(CacheInterceptor)
   @UseGuards(AuthGuard('local'))
   public async login(@Query('email') email, @Req() req) {
     req.session.user = email;

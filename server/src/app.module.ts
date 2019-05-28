@@ -1,6 +1,6 @@
 import { Module, CacheModule } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { CatsModule } from './cats/cats.module';
+import { UploadModule } from './upload/upload.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { redisConn, redisCache } from './redis.store';
@@ -8,7 +8,7 @@ import { redisConn, redisCache } from './redis.store';
 @Module({
   imports: [
     AuthModule,
-    CatsModule,
+    UploadModule,
     UserModule,
     CacheModule.register(redisConn),
     GraphQLModule.forRoot({

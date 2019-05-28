@@ -6,8 +6,12 @@
 
 /* tslint:disable */
 export class InputCreateUser {
-    name?: string;
+    id: number;
+    email: string;
+    firstName: string;
+    lastName?: string;
     age?: number;
+    role: string;
 }
 
 export abstract class IMutation {
@@ -31,4 +35,10 @@ export class User {
     lastName?: string;
     age?: number;
     role: string;
+    details?: UserDetails;
+}
+
+export class UserDetails {
+    nick?: string;
+    status?: number;
 }

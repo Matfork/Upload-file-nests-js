@@ -5,4 +5,11 @@ type User {
   lastName: String
   age: Int
   role: String!
+  details: UserDetails
+  extra: String
+}
+
+type UserDetails {
+  nick: String
+  status: Int
 }

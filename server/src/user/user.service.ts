@@ -11,6 +11,10 @@ export class UserService {
       lastName: 'Perez',
       age: 24,
       role: 'user',
+      details: {
+        nick: 'jhon snow',
+        status: 1,
+      },
     },
   ];
 

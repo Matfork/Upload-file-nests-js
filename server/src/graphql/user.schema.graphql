@@ -12,6 +12,10 @@ type Subscription {
 }
 
 input InputCreateUser {
-  name: String
+  id: Int!
+  email: String!
+  firstName: String!
+  lastName: String
   age: Int
+  role: String!
 }

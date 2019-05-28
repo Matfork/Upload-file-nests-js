@@ -7,8 +7,8 @@ export const redisConn = {
   store: redisStore,
   host: 'localhost', // default value
   port: 6379, // default value
-  ttl: 36000,
   db: 0,
+  ttl: 0, //0 means to keep data in cache for ever (never expires)
   // auth_pass: 'XXXXX',
 } as cacheManager.StoreConfig;
 export const redisCache = cacheManager.caching(redisConn);

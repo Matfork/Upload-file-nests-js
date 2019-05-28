@@ -16,7 +16,7 @@ import { LocalStrategy } from './passport/local.strategy';
     JwtModule.register({
       secret: 'secretKey',
       signOptions: {
-        expiresIn: 360000,
+        expiresIn: 1000 * 60 * 60 * 24, // 7 days,
       },
     }),
   ],
